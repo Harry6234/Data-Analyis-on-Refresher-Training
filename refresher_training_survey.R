@@ -14,29 +14,30 @@ attended_similar <- (subset(survey, survey$`Have you attended any training of th
 #Never attended a similar training
 not_attended_similar <- (subset(survey, survey$`Have you attended any training of this sort before?`== "No"))
 
-ggplot(survey, aes(`Have you attended any training of this sort before?`, y = Designation)) +
-  geom_bar(stat="identity", position = "dodge") +
-  labs(title="Multiple Bar plots")
-
 
 ggplot(survey, aes(Designation, `The training session was useful to my work`,  fill=`Have you attended any training of this sort before?`)) +
   geom_bar(stat="identity", position = "dodge") +
   labs(title="Have you attended any training of this sort before? Vs The training session was useful to my work",
-       caption = "Source: Survey Response From Refresher Training, August 2022 ")
+       caption = "Source: Survey Response From Refresher Training,University of Cape Coast; August 2022")
 
 
+g <- ggplot(survey, aes(`Using the UCCOSIS improves the quality of my task/work`))
+g + geom_bar(aes(fill=College), width = 0.5) + 
+  theme(axis.text.x = element_text(angle=0, vjust=0.5)) +
+  labs(title="Using the UCCOSIS improves the quality of my task/work", 
+      subtitle="Note: NA implies No Answer", 
+       caption="Source: Survey Response From Refresher Training,University of Cape Coast; August 2022")
 
-g <- ggplot(attended_similar, aes(`The internet network does not support effective use of UCCOSIS`)) + scale_fill_brewer(palette = "Spectral")
+b <- ggplot(survey, aes(Designation))
+b + geom_bar(aes(fill=College), width = 0.5) + 
+  theme(axis.text.x = element_text(angle=0, vjust=0.5)) +
+  labs(title="Using the UCCOSIS improves the quality of my task/work", 
+       subtitle="Note: NA implies No Answer", 
+       caption="Source: Survey Response From Refresher Training,University of Cape Coast; August 2022")
 
-g + geom_histogram(aes(fill=`The UCCOSIS supports quality student records management`), 
-                   binwidth = .1, 
-                   col="black", 
-                   size=.1) +  # change binwidth
-  labs(title="Histogram with Auto Binning", 
-       subtitle="Engine Displacement across Vehicle Classes")  
-g + geom_histogram(aes(fill=class), 
-                   bins=5, 
-                   col="black", 
-                   size=.1) +   # change number of bins
-  labs(title="Histogram with Fixed Bins", 
-       subtitle="Engine Displacement across Vehicle Classes") 
+a <- ggplot(survey, aes(Designation))
+a + geom_bar(aes(fill=College), width = 0.5)+
+  theme(axis.text.x = element_text(angle=0, vjust=0.5)) +
+  labs(title="Using the UCCOSIS improves the quality of my task/work", 
+       subtitle="Note: NA implies No Answer", 
+       caption="Source: Survey Response From Refresher Training,University of Cape Coast; August 2022") 
