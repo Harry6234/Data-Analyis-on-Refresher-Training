@@ -4,8 +4,29 @@ library(readxl)
 library(janitor)
 library(CGPfunctions)
 
+getwd()
+
 survey <- read_excel("Questionaire.xlsx")
-names(survey)
+
+#------------------- Exploring Data
+
+# 1. viewing the column labels and column head
+colnames(survey)
+# checking the number of rows
+nrow(survey)
+
+# checking the number of columns
+ncol(survey)
+#  A quick glance through the data
+head(survey, n=10)
+tail(survey, n=10)
+
+# looking at the structure of the data
+str(survey)
+
+# Summary of the data
+summary(survey)
+
 
 
 skimr::skim(survey)
