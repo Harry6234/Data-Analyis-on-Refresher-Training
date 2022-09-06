@@ -26,11 +26,9 @@ str(survey)
 
 # Summary of the data
 summary(survey)
-
-
+survey[1:10]
 
 skimr::skim(survey)
-head(survey)
 
 #Cross tab analysis with percentages.
 tabyl(survey, College, Designation) %>%
