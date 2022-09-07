@@ -8,7 +8,7 @@ getwd()
 
 survey <- read_excel("Questionaire.xlsx")
 
-#------------------- Exploring Data
+#------------------- Exploring Data ------------------------
 
 # 1. viewing the column labels and column head
 colnames(survey)
@@ -28,7 +28,30 @@ str(survey)
 summary(survey)
 survey[1:10]
 
+#  -------------Lets drop some the columns not needed 
+#  since I am working with a copy of the data set -------------
+
+survey$ID <- NULL
+survey$`Completion time` <- NULL
+survey$Email <- NULL
+survey$`Start time` <- NULL
+survey$Name <- NULL
+survey$`Questionaire Number` <- NULL
+# A quick skim through the changes now
 skimr::skim(survey)
+
+# ------Filtering respondents who have had similar training
+had_similar_training <- survey$`Have you attended any training of this sort before?`== "Yes"
+survey[had_similar_training,]
+
+
+
+
+
+# ------Filtering respondents who have not had similar training
+no_similar_training <- survey$`Have you attended any training of this sort before?`=="No"
+survey[no_similar_training,]
+
 
 #Cross tab analysis with percentages.
 tabyl(survey, College, Designation) %>%
