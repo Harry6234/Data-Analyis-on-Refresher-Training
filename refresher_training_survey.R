@@ -2,7 +2,7 @@ library(ggplot2)
 library(tidyverse)
 library(readxl)
 library(janitor)
-library(CGPfunctions)
+
 
 getwd()
 
@@ -43,8 +43,12 @@ skimr::skim(survey)
 # ------Filtering respondents who have had similar training
 had_similar_training <- survey$`Have you attended any training of this sort before?`== "Yes"
 survey[had_similar_training,]
+<<<<<<< HEAD
 
 
+=======
+qplot(data=survey, x=`Have you attended any training of this sort before?`, y= )
+>>>>>>> aaf368a (resolved umerged fle)
 
 
 
@@ -53,6 +57,10 @@ no_similar_training <- survey$`Have you attended any training of this sort befor
 survey[no_similar_training,]
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> aaf368a (resolved umerged fle)
 #Cross tab analysis with percentages.
 tabyl(survey, College, Designation) %>%
   adorn_percentages("row") %>%
