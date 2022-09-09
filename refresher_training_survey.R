@@ -43,12 +43,8 @@ skimr::skim(survey)
 # ------Filtering respondents who have had similar training
 had_similar_training <- survey$`Have you attended any training of this sort before?`== "Yes"
 survey[had_similar_training,]
-<<<<<<< HEAD
 
-
-=======
 qplot(data=survey, x=`Have you attended any training of this sort before?`, y= )
->>>>>>> e0ec4a1 (initial commit file)
 
 
 
@@ -57,10 +53,6 @@ no_similar_training <- survey$`Have you attended any training of this sort befor
 survey[no_similar_training,]
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> e0ec4a1 (initial commit file)
 #Cross tab analysis with percentages.
 tabyl(survey, College, Designation) %>%
   adorn_percentages("row") %>%
