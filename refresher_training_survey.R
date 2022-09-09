@@ -17,6 +17,7 @@ nrow(survey)
 
 # checking the number of columns
 ncol(survey)
+
 #  A quick glance through the data
 head(survey, n=10)
 tail(survey, n=10)
