@@ -9,7 +9,7 @@ getwd()
 
 survey <- read_excel("Questionaire.xlsx")
 
-#------------------- Exploring Data ------------------------
+#------------------- Exploring Data -------------------------
 
 # 1. viewing the column labels and column head
 colnames(survey)
@@ -64,7 +64,7 @@ similar_training <- ggplot(attended_similar, aes(College, `The training session 
   geom_bar(stat="identity", position = "dodge", width = 0.5) +
   labs(title ="The training session was useful to my work",
        subtitle="Respondents who have attended a similar training") +
-  ylab("")
+  ylab(" ")
 
 
 #Never attended a similar training
