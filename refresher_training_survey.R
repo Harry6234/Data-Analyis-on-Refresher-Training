@@ -231,15 +231,7 @@ grid.arrange(present_3, present_4, nrow= 2, ncol=1)
 
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e1a5e4c (Updated coomit)
-=======
->>>>>>> 38f9b46 (updated commit)
-#-------------------------------------------------
+#------------------------------------------------- Creating a filter
 
 
 impact_work_skills1 <- (subset(survey, survey$`I have acquired the basic knowledge necessary to use the UCCOSIS  `=="Strongly Agree"))
@@ -299,16 +291,4 @@ ggplot(survey, aes(College, `The internet network does not support effective use
   ylab(" ") 
 
 dev.off()
-<<<<<<< HEAD
 
-=======
-=======
-#-------------------------------------------------
->>>>>>> parent of 21ad133 (updated commit)
-<<<<<<< HEAD
->>>>>>> e1a5e4c (Updated coomit)
-=======
-=======
-#-------------------------------------------------
->>>>>>> parent of 21ad133 (updated commit)
->>>>>>> 38f9b46 (updated commit)
