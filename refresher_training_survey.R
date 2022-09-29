@@ -5,7 +5,6 @@ library(janitor)
 library("gridExtra")
 
 
-getwd()
 
 survey <- read_excel("Questionaire.xlsx")
 
@@ -92,7 +91,7 @@ no_similar_training_impact <- ggplot(not_attended_similar, aes(College, `The tra
        caption = "Source: August 2022 Refresher Training Survey, University of Cape Coast") +
   ylab("")
 
-#-------
+#---------------------
 #subplot of attendance of similar training and no similar training Vs Impact
 grid.arrange(similar_training_impact, no_similar_training_impact, nrow = 2, ncol=1)
 # -----------------
@@ -159,7 +158,7 @@ ggplot(survey, aes(Designation, `The training session was useful to my work`,  f
   xlab("")
 # -------------------------------------------------------------------------------------------
 
-# Insight 2: --- Impact of UCCOSIS on work quality ---
+# Insight 2: --- Impact of UCCOSIS on work quality ------
 g <- ggplot(survey, aes(`Using the UCCOSIS improves the quality of my task/work`))
 g + geom_bar(aes(fill=College), width = 0.5) + 
   theme(axis.text.x = element_text(angle=0, vjust=0.1)) +
@@ -242,7 +241,7 @@ chart1 <- ggplot(impact_work_skills1, aes(College,`I can make data entry using t
   geom_bar(stat="identity", position = "dodge", width = 0.8) + scale_fill_hue(l=50) +
   labs(title = "I have acquired the basic knowledge necessary to use the UCCOSIS & I can make data entry using the UCCOSIS software",
     subtitle="Perpective: Strongly Agree")+
-  ylab("")
+  ylab(" ")
 
 chart2 <- ggplot(impact_work_skills2, aes(College,`I can make data entry using the UCCOSIS software `, fill=Designation)) +
   geom_bar(stat="identity", position = "dodge", width = 0.8) + scale_fill_hue(l=50) +
@@ -279,7 +278,7 @@ chart6 <- ggplot(impact_work_skills3, aes(College,`I can make data analysis usin
 
 #-----------
 grid.arrange(chart4, chart5, chart6, nrow = 3, ncol=1)
-# _____________________-
+# _____________________
 
 
 tiff("test.tiff", units = "in", width = 15, height = 5, res = 10)
