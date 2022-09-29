@@ -5,7 +5,6 @@ library(janitor)
 library("gridExtra")
 
 
-getwd()
 
 survey <- read_excel("Questionaire.xlsx")
 
@@ -242,7 +241,7 @@ chart1 <- ggplot(impact_work_skills1, aes(College,`I can make data entry using t
   geom_bar(stat="identity", position = "dodge", width = 0.8) + scale_fill_hue(l=50) +
   labs(title = "I have acquired the basic knowledge necessary to use the UCCOSIS & I can make data entry using the UCCOSIS software",
     subtitle="Perpective: Strongly Agree")+
-  ylab("")
+  ylab(" ")
 
 chart2 <- ggplot(impact_work_skills2, aes(College,`I can make data entry using the UCCOSIS software `, fill=Designation)) +
   geom_bar(stat="identity", position = "dodge", width = 0.8) + scale_fill_hue(l=50) +
