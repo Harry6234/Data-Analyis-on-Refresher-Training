@@ -39,6 +39,8 @@ survey$`Start time` <- NULL
 survey$Name <- NULL
 survey$`Questionaire Number` <- NULL
 
+
+View(survey)
 # A quick skim through the changes now
 skimr::skim(survey)
 
@@ -130,7 +132,7 @@ acquired_basic_knowledge2 <- ggplot(not_attended_similar, aes(College,`I have ac
 grid.arrange(acquired_basic_knowledge1, acquired_basic_knowledge2, nrow = 2, ncol=1)
 # ---------
 
-
+## Perspective: Respondent attended Similar training
 # Needs a user manual for UCCOSIS
 
 needs_user_manual_1 <- ggplot(attended_similar, aes(College,`I need a user manual for the UCCOSIS `, fill=Designation)) +
