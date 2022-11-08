@@ -1,0 +1,161 @@
+---
+title: "Data Report"
+author: "JOSEPH HARRY MENSAH"
+date: "2022-11-08"
+output: 
+  powerpoint_presentation: 
+    toc: yes
+    fig_width: 10
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(ggplot2)
+library(tidyverse)
+library(readxl)
+library(janitor)
+library("gridExtra")
+
+survey <- read_excel("Questionaire.xlsx")
+```
+
+## Question: The training session was useful to my work 
+
+## The training session was useful to my work
+
+```{r cars, echo=FALSE, dpi=500}
+attended_similar <- (subset(survey, survey$`Have you attended any training of this sort before?`== "Yes"))
+similar_training <- ggplot(attended_similar, aes(College, `The training session was useful to my work`, fill=Designation)) +
+  geom_bar(stat="identity", position = "dodge", width = 0.5)  + scale_fill_hue(l=60) +
+  labs(title ="Perpective: Respondent attended similar training",
+       subtitle="",
+       caption ="Source:Refresher Training Survey, University of Cape Coast") +
+  ylab(" ")
+similar_training
+
+```
+
+## The training session was useful to my work
+
+```{r pressure, echo=FALSE, dpi=500}
+not_attended_similar <- (subset(survey, survey$`Have you attended any training of this sort before?`== "No"))
+no_similar_training <- ggplot(not_attended_similar, aes(College, `The training session was useful to my work`, fill=Designation)) +
+  geom_bar(stat="identity", position = "dodge", width = 0.5) + scale_fill_hue(l=60) +
+  labs(subtitle="Perspective: Respondent has not attended similar training",
+       caption = "Source: August 2022 Refresher Training Survey, University of Cape Coast") +
+  ylab("")
+no_similar_training
+```
+
+## Comparison: The training session was useful to my work
+
+```{r dream, echo=FALSE, dpi=500}
+
+grid.arrange(similar_training, no_similar_training, nrow = 2, ncol=1)
+```
+
+## Question: The training will impact positively on my work
+## Positive Impact On Work
+```{r dream2, echo=FALSE, dpi=500}
+similar_training_impact <- ggplot(attended_similar, aes(College, `The training will impact positively on my work `, fill=Designation)) +
+  geom_bar(stat="identity", position = "dodge", width = 0.5) +
+  labs(title="The training will impact positively on my work",
+       subtitle="Perspective: Respondent attended similar training") +
+  ylab("")
+similar_training_impact
+```
+
+## Positive Impact On Work
+```{r dream3, echo=FALSE, dpi=500}
+no_similar_training_impact <- ggplot(not_attended_similar, aes(College, `The training will impact positively on my work `, fill=Designation)) +
+  geom_bar(stat="identity", position = "dodge", width = 0.9) +
+  labs(title = "The training will impact positively on my work",
+    subtitle="Perspective: Respondent has not attended similar training",
+       caption = "Source: August 2022 Refresher Training Survey, University of Cape Coast") +
+  ylab("")
+no_similar_training_impact
+```
+
+## Comparison: The training will impact positively on my work 
+```{r summary1, echo=FALSE, dpi=500}
+grid.arrange(similar_training_impact, no_similar_training_impact, nrow = 2, ncol=1)
+```
+
+##  Question: I need such training regularly
+## The need for such training regularly
+```{r dream5, echo=FALSE, dpi=500}
+similar_and_regular_training <- ggplot(attended_similar, aes(College,`I need such training regularly `, fill=Designation)) +
+  geom_bar(stat="identity", position = "dodge", width = 0.5) +
+  labs(title="I need such training regularly",
+       subtitle="Perspective: Respondent attended Similar training") +
+  ylab("")
+similar_and_regular_training
+```
+
+## The need for such training regularly
+```{r dreams6, echo=FALSE, dpi=500}
+no_similar_and_regular_training <- ggplot(not_attended_similar, aes(College,`I need such training regularly `, fill=Designation)) +
+  geom_bar(stat="identity", position = "dodge", width = 0.8) +
+  labs(subtitle="Perspective: Respondent has not attended Similar training",
+       caption = "Source: August 2022 Refresher Training Survey, University of Cape Coast") +
+  ylab("")
+no_similar_and_regular_training
+```
+
+## Comaparison: I need such training regularly
+```{r echo=FALSE, dpi=500}
+grid.arrange(similar_and_regular_training, no_similar_and_regular_training, nrow = 2, ncol=1)
+```
+
+## Question : I have acquired the basic knowledge necessary to use the UCCOSIS
+## Acquired basic Knowledge on UCCOSIS usage
+```{r echo=FALSE, dpi=500}
+acquired_basic_knowledge1 <- ggplot(attended_similar, aes(College,`I have acquired the basic knowledge necessary to use the UCCOSIS  `, fill=Designation)) +
+  geom_bar(stat="identity", position = "dodge", width = 0.4) +
+  labs(title="I have acquired the basic knowledge necessary to use the UCCOSIS",
+       subtitle="Perspective: Respondent attended Similar training") +
+  ylab("")
+
+acquired_basic_knowledge1
+```
+
+## Acquired basic Knowledge on UCCOSIS usage
+```{r echo=FALSE, dpi=500}
+acquired_basic_knowledge2 <- ggplot(not_attended_similar, aes(College,`I have acquired the basic knowledge necessary to use the UCCOSIS  `, fill=Designation)) +
+  geom_bar(stat="identity", position = "dodge", width = 0.8) +
+  labs(subtitle="Perspective: Respondent has not attended Similar training",
+       caption = "Source: August 2022 Refresher Training Survey, University of Cape Coast")+
+  ylab("")
+acquired_basic_knowledge2
+```
+
+## Comparison: I have acquired the basic knowledge necessary to use the UCCOSIS 
+```{r echo=FALSE, dpi=500}
+grid.arrange(acquired_basic_knowledge1, acquired_basic_knowledge2, nrow = 2, ncol=1)
+```
+
+## Question: I need a user manual for the UCCOSIS
+## The Need For A User Manual
+```{r echo=FALSE, dpi=500}
+needs_user_manual_1 <- ggplot(attended_similar, aes(College,`I need a user manual for the UCCOSIS `, fill=Designation)) +
+  geom_bar(stat="identity", position = "dodge", width = 0.4) +
+  labs(title="I need a user manual for the UCCOSIS",
+       subtitle="Perspective: Respondent attended Similar training")+
+  ylab("")
+needs_user_manual_1
+```
+
+## The Need For A User Manual
+```{r echo=FALSE, dpi=500}
+needs_User_manual_2 <- ggplot(not_attended_similar, aes(College,`I need a user manual for the UCCOSIS `, fill=Designation)) +
+  geom_bar(stat="identity", position = "dodge", width = 0.8) +
+  labs(subtitle="Perpective: Respondent has not attended Similar training",
+       caption = "Source: August 2022 Refresher Training Survey, University of Cape Coast")+
+  ylab("")
+needs_User_manual_2
+```
+
+## Comparison: I need a user manual for the UCCOSIS
+```{r echo=FALSE, dpi=500}
+grid.arrange(needs_user_manual_1, needs_User_manual_2, nrow = 2, ncol=1)
+```

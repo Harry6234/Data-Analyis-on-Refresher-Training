@@ -1,14 +1,14 @@
 ---
-title: A DATA ANALYSIS REPORT ON REFRESHER TRAINING, STUDENTS' RECORD SECTION, UNIVERSITY
-  OF CAPE COAST
+title: A DATA ANALYSIS REPORT ON REFRESHER TRAINING, STUDENTS' RECORD SECTION, UNIVERSITY OF CAPE COAST
 author: "JOSEPH HARRY MENSAH"
 date: "SEPTEMBER 27, 2022"
-output: powerpoint_presentation
+output: 
+  powerpoint_presentation: 
+    fig_width: 10
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_chunk$set(error = TRUE,comment=NA)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r include = FALSE}
@@ -22,8 +22,9 @@ library("gridExtra")
 ```{r include = FALSE}
 survey <- read_excel("Questionaire.xlsx")
 ```
-### The training session was useful to my work
-```{r chart1, echo=FALSE, dpi=500, fig.align='left', similar_training.width=900}
+---
+## Respondents' attend a smiliar training Vs The Traing is Useful
+```{r chart1, echo=FALSE, dpi=500}
 attended_similar <- (subset(survey, survey$`Have you attended any training of this sort before?`== "Yes"))
 similar_training <- ggplot(attended_similar, aes(College, `The training session was useful to my work`, fill=Designation)) +
   geom_bar(stat="identity", position = "dodge", width = 0.5)  + scale_fill_hue(l=60) +
@@ -33,10 +34,13 @@ similar_training <- ggplot(attended_similar, aes(College, `The training session 
   ylab(" ")
 similar_training
 ```
-```{r chart2, echo=FALSE, dpi=500, out.width="700px"}
+---
+---
+### Dreams
+```{r chart2, echo=FALSE, dpi=500}
 not_attended_similar <- (subset(survey, survey$`Have you attended any training of this sort before?`== "No"))
 no_similar_training <- ggplot(not_attended_similar, aes(College, `The training session was useful to my work`, fill=Designation)) +
-  geom_bar(stat="identity", position = "dodge", width = 0.8) +
+  geom_bar(stat="identity", position = "dodge", width = 0.5) + scale_fill_hue(l=60) +
   labs(subtitle="Respondents have not attended similar training",
        caption = "Source: August 2022 Refresher Training Survey, University of Cape Coast") +
   ylab("")
